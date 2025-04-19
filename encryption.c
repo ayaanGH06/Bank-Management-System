@@ -4,15 +4,15 @@
 #include <string.h>
 
 const int caesarkey = 19;
-char substitution_key[] = "PGWHSXCTIRZQLJOAMUYVNDFEBK";
-int alphabets[26] = { 0,  1,  2,  3,  4,  5,  6,  7,  8,  9,  10, 11, 12,
+const char substitution_key[] = "PGWHSXCTIRZQLJOAMUYVNDFEBK";
+const int alphabets[26] = { 0,  1,  2,  3,  4,  5,  6,  7,  8,  9,  10, 11, 12,
                       13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25
                     };
 
 char* encrypt(char *passkey);
 char* decrypt(char *encrypted);
-char substitute_char(char c, char key[]);
-char reverse_substitute(char c, char key[]);
+char substitute_char(char c, const char key[]);
+char reverse_substitute(char c, const char key[]);
 
 
 int main()
@@ -77,7 +77,7 @@ char* decrypt(char *encrypted)
 }
 
 
-char substitute_char(char c, char key[])
+char substitute_char(char c, const char key[])
 {
     c = toupper(c);
     int ascci_value = c;
@@ -86,7 +86,7 @@ char substitute_char(char c, char key[])
     return out;
 }
 
-char reverse_substitute(char c, char key[]) 
+char reverse_substitute(char c, const char key[]) 
 {
     c = toupper(c); 
     for (int i = 0; i < 26; i++) {
