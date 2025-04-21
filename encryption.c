@@ -17,11 +17,11 @@ char reverse_substitute(char c, const char key[]);
 
 int main()
 {
-    char *password = "Ctc@753009b";
+    char *password = "abcd";
     char *x = encrypt(password);
     printf("Encrypted: %s\n", x);
     char *y = decrypt(x);
-    printf("Encrypted: %s\n", y);
+    printf("Decrypted: %s\n", y);
     free(x);
 }
 
