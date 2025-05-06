@@ -17,7 +17,16 @@ char reverse_substitute(char c, const char key[]);
 
 int main()
 {
-    char *password = "abcd";
+    char password[100];  // input buffer size
+    printf("Enter your password: ");
+    fgets(password, sizeof(password), stdin);
+
+    // Remove trailing newline if present
+    size_t len = strlen(password);
+    if (len > 0 && password[len - 1] == '\n') {
+        password[len-1] = '\0';
+    }
+    
     char *x = encrypt(password);
     printf("Encrypted: %s\n", x);
     char *y = decrypt(x);
