@@ -3,8 +3,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-const int caesarkey = 19;
-const char substitution_key[] = "PGWHSXCTIRZQLJOAMUYVNDFEBK";
+const int CEASARKEY = 19;
+const char SUBSTITUTION_KEY[] = "PGWHSXCTIRZQLJOAMUYVNDFEBK";
 const int alphabets[26] = { 0,  1,  2,  3,  4,  5,  6,  7,  8,  9,  10, 11, 12,
                       13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25
                     };
@@ -43,15 +43,16 @@ char* encrypt(char *passkey)
     {
         if (passkey[i] >= 'a' && passkey[i] <= 'z')
             {
-                int x = (alphabets[passkey[i] - 'a'] + caesarkey) % 26;
+                int x = (alphabets[passkey[i] - 'a'] + CEASARKEY) % 26;
                 encrypted_password[i] = 'a' + x;
-                encrypted_password[i] = tolower(substitute_char(encrypted_password[i], substitution_key));
+                encrypted_password[i] = tolower(substitute_char(encrypted_password[i], SUBSTITUTION_KEY));
             }
             else if (passkey[i] >= 'A' && passkey[i] <= 'Z')
             {
-                int x = (alphabets[passkey[i] - 'A'] + caesarkey) % 26;
+                int x = (alphabets[passkey[i] - 'A'] + 
+                CEASARKEY) % 26;
                 encrypted_password[i] = 'A' + x;
-                encrypted_password[i] = substitute_char(encrypted_password[i], substitution_key);
+                encrypted_password[i] = substitute_char(encrypted_password[i], SUBSTITUTION_KEY);
             }
             else
                 encrypted_password[i] = passkey[i];
@@ -68,11 +69,11 @@ char* decrypt(char *encrypted)
     for (int i = 0; i < length; i++) 
     {
         char is_lower = islower(encrypted[i]);  
-        char substituted = reverse_substitute(encrypted[i], substitution_key);
+        char substituted = reverse_substitute(encrypted[i], SUBSTITUTION_KEY);
 
         if (isalpha(substituted)) 
         {
-            int idx = (toupper(substituted) - 'A' - caesarkey + 26) % 26;
+            int idx = (toupper(substituted) - 'A' - CEASARKEY + 26) % 26;
             decrypted[i] = is_lower ? ('a' + idx) : ('A' + idx);
         } 
         else 
