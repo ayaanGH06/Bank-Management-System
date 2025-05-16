@@ -17,9 +17,7 @@ char reverse_substitute(char c, const char key[]);
 
 int main()
 {
-    char password[100];  // input buffer size
-    printf("Enter your password: ");
-    fgets(password, sizeof(password), stdin);
+    char password[100] = "abcd";
 
     // Remove trailing newline if present
     size_t len = strlen(password);
