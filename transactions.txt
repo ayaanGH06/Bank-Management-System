@@ -1,0 +1,2 @@
+AccountNumber(Recipient),AccountNumber(Sender),Amount,DateTime,Status
+
