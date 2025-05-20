@@ -413,11 +413,7 @@ void transfer() {
 
 
 void transfer_history() {
-    if (currentLoggedInAccount == -1) {
-        printf("You must be logged in to view transfer history.\n");
-        return;
-    }
-
+    
     printf("\n=== Transfer History ===\n");
 
     FILE *file = fopen("transactions.txt", "r");
