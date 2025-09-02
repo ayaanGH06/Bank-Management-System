@@ -1,2 +1,4 @@
 AccountNumber,EncryptedPassword,Name,Phone,EmailAddress,DateOfBirth,Gender
 
+728,vndf,Obaid,1234,abcd,21072004,male
+210,vndf,Ayaan,1234,abcd,2195066,male
